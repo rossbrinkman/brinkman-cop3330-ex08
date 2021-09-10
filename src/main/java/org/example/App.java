@@ -10,22 +10,27 @@ public class App
 {
     public static void main( String[] args )
     {
-        System.out.println( "What is the first number? " );
-
         Scanner scanner = new Scanner(System.in);
-        String first, second;
-        int firstNumber, secondNumber;
+        int people, pizzas, slicesPerPizza, totalSlices, slicesPerPerson, leftOver;
 
-        first = scanner.nextLine();
-        firstNumber = Integer.parseInt(first);
+        System.out.println( "How many people? " );
+        people = scanner.nextInt();
 
-        System.out.println( "What is the second number? " );
-        second = scanner.nextLine();
-        secondNumber = Integer.parseInt(second);
+        System.out.println( "How many pizzas do you have? " );
+        pizzas = scanner.nextInt();
 
-        System.out.println( firstNumber + " + " + secondNumber + " = " + (firstNumber+secondNumber));
-        System.out.println( firstNumber + " - " + secondNumber + " = " + (firstNumber-secondNumber));
-        System.out.println( firstNumber + " * " + secondNumber + " = " + (firstNumber*secondNumber));
-        System.out.println( firstNumber + " / " + secondNumber + " = " + (firstNumber/secondNumber));
+        System.out.println( "How many slices per pizza? " );
+        slicesPerPizza = scanner.nextInt();
+
+        totalSlices = slicesPerPizza * pizzas;
+        slicesPerPerson = totalSlices / people;
+        leftOver = totalSlices % people;
+
+        System.out.println
+                (
+                people + " people with " + pizzas + " pizzas (" + totalSlices + " slices)\n" +
+                "Each person gets " + slicesPerPerson + " pieces of pizza.\n" +
+                "There are " + leftOver + " leftover pieces."
+                );
     }
 }
